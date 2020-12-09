@@ -15,7 +15,6 @@ const userSchema = new Schema({
       type: String,
       required:true
   },
-  comment: [],
   favoriteMovies: [],
   favoriteSeries:[]
 }, {
