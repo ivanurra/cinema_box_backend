@@ -1,11 +1,12 @@
 // routes/auth-routes.js
 
-const express   = require("express")
+const express       = require("express")
 const authRoutes    = express.Router()
-const passport  = require("passport")
-const bcrypt    = require("bcryptjs")
+const passport      = require("passport")
+const bcrypt        = require("bcryptjs")
 
-// require the user model
+// USER MODEL
+
 const User = require('../models/User')
 
 authRoutes.post('/signup', (req, res, next) => {
@@ -125,6 +126,5 @@ authRoutes.get('/loggedin', (req, res) => {
         message: 'Unauthorized'
     });
 });
-
 
 module.exports = authRoutes

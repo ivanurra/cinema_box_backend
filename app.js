@@ -86,7 +86,6 @@ app.use(flash())
 //Middleware del Strategy
 passport.use(
 	new LocalStrategy({ 
-    // passReqToCallback: true 
     usernameField : 'username',
     passwordField : 'password',
     passReqToCallback : true 
@@ -133,8 +132,8 @@ app.use('/', authRoutes);
 //           baseURL: 'https://api.themoviedb.org/3', 
 //       })
 //   }
-//   getTrendingMovies = () => this.config('/trending/movie/week?api_key=9fafbea01209e6ebcaea05055a80313b')
-//   getTrendingTv = () => this.config('/trending/tv/week?api_key=9fafbea01209e6ebcaea05055a80313b')
+//   getTrendingMovies = () => this.config('/trending/movie/week?api_key=753695281d50b7b389995df8dbd876d3')
+//   getTrendingTv = () => this.config('/trending/tv/week?api_key=753695281d50b7b389995df8dbd876d3')
 // }
 
 // module.exports = MoviesApiHandler;
