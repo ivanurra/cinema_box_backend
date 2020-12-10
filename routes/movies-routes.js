@@ -3,6 +3,8 @@ const router = express.Router()
 
 const User = require('../models/User')
 
+// MOVIES ROUTES
+
 router.post('/profile/edit/:id', (req, res) => {
 
     const id = req.params.id
