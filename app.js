@@ -58,7 +58,7 @@ app.use((req, res, next) => {
 
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:3000"]
+  origin: ["http://localhost:5000"]
 }));
 
 app.use((req, res, next)=>{
@@ -122,19 +122,6 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/', authRoutes);
-
-// API HANDLER
-// class MoviesApiHandler {
-//   constructor() {
-//       this.config = axios.create({
-//           baseURL: 'https://api.themoviedb.org/3', 
-//       })
-//   }
-//   getTrendingMovies = () => this.config('/trending/movie/week?api_key=753695281d50b7b389995df8dbd876d3')
-//   getTrendingTv = () => this.config('/trending/tv/week?api_key=753695281d50b7b389995df8dbd876d3')
-// }
-
-// module.exports = MoviesApiHandler;
 
 module.exports = app;
 
