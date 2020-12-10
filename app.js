@@ -26,7 +26,7 @@ mongoose
   })
   .catch(err => {
     console.error('Error connecting to mongo', err)
-  });
+  })
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`)
@@ -58,12 +58,12 @@ app.use((req, res, next) => {
 
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:5000"]
-}));
+  origin: ["http://localhost:3000"]
+}))
 
 app.use((req, res, next)=>{
   res.locals.user = req.user
-  next();
+  next()
 })
 
 // Middleware de Session
@@ -72,12 +72,12 @@ app.use(session({ secret: 'ourPassword', resave: true, saveUninitialized: true }
 //Middleware para serializar al usuario
 passport.serializeUser((user, callback) => {
 	callback(null, user._id)
-});
+})
 
 //Middleware para des-serializar al usuario
 passport.deserializeUser((id, callback) => {
 	User.findById(id).then((user) => callback(null, user)).catch((err) => callback(err))
-});
+})
 
 app.use(flash())
 
@@ -115,7 +115,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 // default value for title local
-app.locals.title = 'Cinema BOX';
+app.locals.title = 'Cinema BOX'
 
 const index = require('./routes/index')
 app.use('/', index);

@@ -11,40 +11,40 @@ const User = require('../models/User')
 
 authRoutes.post('/signup', (req, res, next) => {
 
-    const { username, password, email} = req.body
+    const {username, password, email} = req.body
 
     if (!username || !password || !email) {
         res.status(400).json({
             message: 'Provide username, password and email'
-        });
-        return;
+        })
+        return
     }
 
     if (password.length < 7) {
         res.status(400).json({
             message: 'Please make your password at least 8 characters long for security purposes.'
-        });
-        return;
+        })
+        return
     }
 
-    User.findOne({ username }, (err, foundUser) => {
+    User.findOne({username}, (err, foundUser) => {
 
         if (err) {
             res.status(500).json({
                 message: 'Username incorrect.'
             });
-            return;
+            return
         }
 
         if (foundUser) {
             res.status(400).json({
                 message: 'Email taken. Choose another one.'
             });
-            return;
+            return
         }
 
         const salt = bcrypt.genSaltSync(10);
-        const hashPass = bcrypt.hashSync(password, salt);
+        const hashPass = bcrypt.hashSync(password, salt)
 
         const aNewUser = new User({
 			username, password: hashPass, email
@@ -55,7 +55,7 @@ authRoutes.post('/signup', (req, res, next) => {
                 res.status(500).json({
                     message: 'Saving user to database went wrong.'
                 });
-                return;
+                return
             }
 
             req.login(aNewUser, (err) => {
@@ -64,14 +64,14 @@ authRoutes.post('/signup', (req, res, next) => {
                     res.status(500).json({
                         message: 'Login after signup went bad.'
                     });
-                    return;
+                    return
                 }
 
-                res.status(200).json(aNewUser);
-            });
-        });
-    });
-});
+                res.status(200).json(aNewUser)
+            })
+        })
+    })
+})
 
 
 authRoutes.post('/login', (req, res, next) => {
@@ -79,13 +79,13 @@ authRoutes.post('/login', (req, res, next) => {
         if (err) {
             res.status(500).json({
                 message: 'Failed to authenticate user.'
-            });
-            return;
+            })
+            return
         }
 
         if (!theUser) {
-            res.status(401).json(failureDetails);
-            return;
+            res.status(401).json(failureDetails)
+            return
         }
 
         req.login(theUser, (err) => {
@@ -93,29 +93,29 @@ authRoutes.post('/login', (req, res, next) => {
                 res.status(500).json({
                     message: 'Session error'
                 });
-                return;
+                return
             }
 
             res.status(200).json(theUser);
-        });
+        })
     })(req, res, next);
-});
+})
 
 authRoutes.post('/logout', (req, res) => {
     req.logout();
     res.status(200).json({
         message: 'Log out success!'
-    });
-});
+    })
+})
 
 authRoutes.get('/loggedin', (req, res) => {
     if (req.isAuthenticated()) {
-        res.status(200).json(req.user);
+        res.status(200).json(req.user)
         return;
     }
     res.status(403).json({
         message: 'Unauthorized'
-    });
-});
+    })
+})
 
 module.exports = authRoutes
