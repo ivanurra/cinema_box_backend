@@ -5,18 +5,6 @@ const User = require('../models/User')
 
 // MOVIES ROUTES
 
-router.post('/profile/edit/:id', (req, res) => {
-
-    const id = req.params.id
-    let username = req.body.username
-    let password = req.body.password
-    let email = req.body.email
-
-    User.findByIdAndUpdate(id, { username: username, password: password, email: email })
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-})
-
 router.post('/profile/addmovie/:id', (req, res) => {
     
     User.findByIdAndUpdate(req.body, { $addToSet: { favoriteMovies: req.params.id } }, {new: true} )
