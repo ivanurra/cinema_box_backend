@@ -19,10 +19,8 @@ const data          = qs.stringify({})
 
 const User = require('./models/User')
 
-const url = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.ntyu6.mongodb.net/cinema_box?retryWrites=true&w=majority`
-
 mongoose
-  .connect(url, {useNewUrlParser: true, useUnifiedTopology:true})
+  .connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:false})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
