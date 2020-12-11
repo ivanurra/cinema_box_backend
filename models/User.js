@@ -17,7 +17,8 @@ const userSchema = new Schema({
   },
   favoriteMovies: [],
   favoriteSeries:[]
-}, {
+}, 
+{
   timestamps: true
 })
 
