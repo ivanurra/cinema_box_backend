@@ -13,9 +13,6 @@ const LocalStrategy = require('passport-local').Strategy
 const bcrypt        = require('bcryptjs')
 const cors          = require("cors")
 const flash         = require("connect-flash")
-const axios         = require('axios')
-const qs            = require('qs')
-const data          = qs.stringify({})
 
 const User = require('./models/User')
 
@@ -122,6 +119,9 @@ app.use('/', index);
 
 const authRoutes = require('./routes/auth-routes')
 app.use('/', authRoutes);
+
+const moviesRoutes = require('./routes/movies-routes')
+app.use('/', moviesRoutes);
 
 module.exports = app;
 
