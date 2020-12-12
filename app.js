@@ -19,10 +19,10 @@ const User = require('./models/User')
 mongoose
   .connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:false})
   .then(x => {
-    console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
+    console.log(`Connected to MongoDB Atlas! Database name: "${x.connections[0].name}"`)
   })
   .catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to MongoDB Atlas', err)
   })
 
 const app_name = require('./package.json').name;
@@ -33,7 +33,7 @@ const app = express()
 // Middleware Setup
 app.use(logger('dev'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
 
 // Express View engine setup
@@ -112,7 +112,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 
 // default value for title local
-app.locals.title = 'Cinema BOX'
+app.locals.title = 'CINEMABOX'
 
 const index = require('./routes/index')
 app.use('/', index);
