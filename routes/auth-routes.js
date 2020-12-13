@@ -1,11 +1,13 @@
-// routes/auth-routes.js
+// file: routes/auth-routes.js
 
 const express       = require("express")
 const authRoutes    = express.Router()
 const passport      = require("passport")
 const bcrypt        = require("bcryptjs")
 
-// USER ROUTES
+///////////////////////////
+// AUTHENTICATION ROUTES //
+///////////////////////////
 
 const User = require('../models/User')
 
@@ -22,7 +24,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
     if (password.length < 7) {
         res.status(400).json({
-            message: 'Please make your password at least 8 characters long for security purposes.'
+            message: 'Password must be at least 8 characters.'
         })
         return
     }
@@ -38,7 +40,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
         if (foundUser) {
             res.status(400).json({
-                message: 'Email taken. Choose another one.'
+                message: 'Email taken, choose another one.'
             });
             return
         }

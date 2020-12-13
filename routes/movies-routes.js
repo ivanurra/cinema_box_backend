@@ -1,8 +1,12 @@
+// file: routes/movies-routes.js
+
 const express = require('express')
 const moviesRoutes = express.Router()
 const User = require('../models/User')
 
-// MOVIES ROUTES
+///////////////////
+// MOVIES ROUTES //
+///////////////////
 
 moviesRoutes.post('/profile/edit/:id', (req, res) => {
 
