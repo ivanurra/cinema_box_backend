@@ -16,6 +16,7 @@ const flash         = require("connect-flash")
 
 const User = require('./models/User')
 
+// Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URL, {useNewUrlParser: true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:false})
   .then(x => {
