@@ -1,12 +1,12 @@
 # CINEMABOX - Backend
 
-### Important: Backend is in another repo called: cinema_box_frontend
+### Important: Frontend is in another repo called: cinema_box_frontend
 
 App about movies and TV shows. It allows you to keep up to date with the latest releases and the greatest hits of the moment. You can save your favorite movies and series so you don't miss anything.
 
 It is a MERN application, built with MongoDB, Express, React and Node.
 
-![Screenshot](public/iphonemeta.png)
+![Screenshot](/images/iphonemeta.png)
 
 ## Starting 🚀
 
