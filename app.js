@@ -45,18 +45,14 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-//CORS middleware
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*')
-//   res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method')
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE')
-//   res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE')
-//   next()
-// });
+
+///////////////////////////////////////////////////////////////////////////////////////
+// In origin you must indicate address of your FRONTEND, either localhost or online. //
+///////////////////////////////////////////////////////////////////////////////////////
 
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:3000"]
+  origin: ["http://localhost:3001"]
 }))
 
 app.use((req, res, next)=>{
