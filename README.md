@@ -6,7 +6,7 @@ App about movies and TV shows. It allows you to keep up to date with the latest 
 
 It is a MERN application, built with MongoDB, Express, React and Node.
 
-![Screenshot](/images/iphonemeta.png)
+![Screenshot](/public/images/iphonemeta.png)
 
 ## Starting 🚀
 
