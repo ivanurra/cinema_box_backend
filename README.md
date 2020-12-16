@@ -53,7 +53,7 @@ App designed and optimized for mobile devices.
 
 LIVE DEMO:
 
-https://pending.com/
+https://cinemabox.netlify.app/
 
 ## Built with 🛠️
 
