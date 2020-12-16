@@ -45,13 +45,12 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////
 // IMPORTANT: In origin you must indicate URL of your FRONTEND, either localhost or online. //
 //////////////////////////////////////////////////////////////////////////////////////////////
 app.use(cors({
   credentials: true,
-  origin: ["http://localhost:3001"]
+  origin: ["http://localhost:3001","https://cinemabox.netlify.app"]
 }))
 
 app.use((req, res, next)=>{
