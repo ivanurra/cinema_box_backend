@@ -58,7 +58,7 @@ https://cinemabox.netlify.app/
 ## Built with 🛠️
 
 * [React](https://reactjs.org/) - Open source Javascript library designed to create user interfaces on a single page.
-* [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - Multi-cloud database service for MongoDB.
+* [MongoDB](https://www.mongodb.com/cloud/atlas) - Multi-cloud database service for MongoDB.
 * [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for node.js.
 * [Express](https://expressjs.com/) - Backend web application framework for Node.js.
 * [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js.
