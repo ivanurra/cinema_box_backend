@@ -1,5 +1,5 @@
 // RATING MODEL
-// Not implemented. It will apply to future versions.
+// Not implemented yet. It will apply to future versions.
 
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema

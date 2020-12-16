@@ -1,4 +1,5 @@
 // USER MODEL
+// Save user data and their favorite movies and series in arrays.
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
