@@ -1,3 +1,5 @@
+//app.js
+
 require('dotenv').config()
 
 const bodyParser    = require('body-parser')
@@ -78,12 +80,12 @@ app.use(session({
 }
 }))
 
-//Middleware para serializar al usuario
+//Middleware to serialize the user
 passport.serializeUser((user, callback) => {
 	callback(null, user._id)
 })
 
-//Middleware para des-serializar al usuario
+//Middleware to deserialize the user
 passport.deserializeUser((id, callback) => {
 	User.findById(id).then((user) => callback(null, user)).catch((err) => callback(err))
 })

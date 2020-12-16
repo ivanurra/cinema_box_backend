@@ -1,4 +1,4 @@
-// User model
+// USER MODEL
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema

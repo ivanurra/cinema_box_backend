@@ -1,4 +1,4 @@
-// Rating model
+// RATING MODEL
 // Not implemented. It will apply to future versions.
 
 const mongoose = require("mongoose")
