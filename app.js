@@ -16,7 +16,6 @@ const bcrypt        = require('bcryptjs')
 const cors          = require("cors")
 const flash         = require("connect-flash")
 const cookieSession = require('cookie-session')
-const { shouldSendSameSiteNone } = require('should-send-same-site-none')
 
 const User = require('./models/User')
 
@@ -61,8 +60,6 @@ app.use((req, res, next)=>{
   res.locals.user = req.user
   next()
 })
-
-app.use(shouldSendSameSiteNone)
 
 app.set('trust proxy', 1)
 app.use(cookieSession({
