@@ -65,13 +65,20 @@ app.set('trust proxy', 1)
 app.use(cookieSession({
     name:'session',
     keys: ['key1', 'key2'],
-    sameSite: 'none',
-    secure: true
+    // sameSite: 'none',
+    // secure: true
+    secret: 'secret',
+    cookie: {
+      secure: true,
+      httpOnly: false,
+      path: 'foo/bar',
+      expires: new Date(Date.now() + 60 * 60 * 1000 * 24 * 365)
+    }
 }))
 
 // Middleware de Session
 app.use(session({ 
-  secret: 'ourPassword',
+  secret: 'secret',
   resave: true, 
   saveUninitialized: true,
   cookie: {
