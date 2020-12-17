@@ -57,16 +57,18 @@ https://cinemabox.netlify.app/
 
 ## Built with 🛠️
 
-* [React](https://reactjs.org/) - Open source Javascript library designed to create user interfaces on a single page.
 * [MongoDB](https://www.mongodb.com/cloud/atlas) - Multi-cloud database service for MongoDB.
-* [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for node.js.
 * [Express](https://expressjs.com/) - Backend web application framework for Node.js.
+* [React](https://reactjs.org/) - Open source Javascript library designed to create user interfaces on a single page.
+* [NodeJS](https://nodejs.org/) - Node.js is a cross-platform runtime environment for the server layer based in JavaScript.
+* [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for node.js.
 * [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js.
 * [Bootstrap](https://getbootstrap.com/) - Front-end styles.
-* [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction) - API for movies/tv shows.
-* [OMDb](http://www.omdbapi.com/) - API for movies/tv shows.
 * [Heroku](https://www.heroku.com/) - For backend deployment.
 * [Netlify](https://www.netlify.com//) - For frontend deployment.
+
+* [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction) - API for movies/tv shows.
+* [OMDb](http://www.omdbapi.com/) - API for movies/tv shows.
 
 ## Author ✒️
 
