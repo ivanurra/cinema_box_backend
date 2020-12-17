@@ -66,6 +66,7 @@ app.use(cookieSession({
     name:'session',
     keys: ['key1', 'key2'],
     sameSite: 'none',
+    httpOnly: true,
     secure: true
 }))
 
@@ -76,11 +77,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: {
     sameSite: 'none',
-    secure: true,
-    httpOnly: false,
-    path: 'foo/bar',
-    expires: new Date(Date.now() + 60 * 60 * 1000 * 24 * 365)
-}
+    secure: true
+  }
 }))
 
 //Middleware to serialize the user
