@@ -66,7 +66,6 @@ https://cinemabox.netlify.app/
 * [Bootstrap](https://getbootstrap.com/) - Front-end styles.
 * [Heroku](https://www.heroku.com/) - For backend deployment.
 * [Netlify](https://www.netlify.com//) - For frontend deployment.
-
 * [TheMovieDB](https://developers.themoviedb.org/3/getting-started/introduction) - API for movies/tv shows.
 * [OMDb](http://www.omdbapi.com/) - API for movies/tv shows.
 
