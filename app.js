@@ -66,7 +66,6 @@ app.use(cookieSession({
     name:'session',
     keys: ['key1', 'key2'],
     sameSite: 'none',
-    httpOnly: true,
     secure: true
 }))
 
