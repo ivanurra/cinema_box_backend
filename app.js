@@ -34,14 +34,7 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express()
 
-// Middleware Setup
-app.use(logger('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(cookieParser())
-
 // Express View engine setup
-
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -51,15 +44,6 @@ app.use(require('node-sass-middleware')({
 //////////////////////////////////////////////////////////////////////////////////////////////
 // IMPORTANT: In origin you must indicate URL of your FRONTEND, either localhost or online. //
 //////////////////////////////////////////////////////////////////////////////////////////////
-app.use(cors({
-  credentials: true,
-  origin: ["http://localhost:3001","https://cinemabox.netlify.app"]
-}))
-
-app.use((req, res, next)=>{
-  res.locals.user = req.user
-  next()
-})
 
 app.set('trust proxy', 1)
 app.use(cookieSession({
@@ -73,12 +57,13 @@ app.use(cookieSession({
 app.use(session({ 
   secret: 'secret',
   resave: true, 
-  saveUninitialized: true,
-  cookie: {
-    sameSite: 'none',
-    secure: true
-  }
+  saveUninitialized: true
 }))
+
+//Middleware de passport
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(flash())
 
 //Middleware to serialize the user
 passport.serializeUser((user, callback) => {
@@ -90,9 +75,7 @@ passport.deserializeUser((id, callback) => {
 	User.findById(id).then((user) => callback(null, user)).catch((err) => callback(err))
 })
 
-app.use(flash())
-
-//Middleware del Strategy
+//Middleware Strategy
 passport.use(
 	new LocalStrategy({ 
     usernameField : 'username',
@@ -116,14 +99,29 @@ passport.use(
 	})
 )
 
-//Middleware de passport
-app.use(passport.initialize())
-app.use(passport.session())
+// Middleware Setup
+app.use(logger('dev'))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(cookieParser())
+
+//Express View engine setup
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
+
+//CORS middleware
+app.use(cors({
+  credentials: true,
+  origin: ["http://localhost:3001","https://cinemabox.netlify.app"]
+}))
+
+app.use((req, res, next)=>{
+  res.locals.user = req.user
+  next()
+})
 
 // default value for title local
 app.locals.title = 'CINEMABOX'
